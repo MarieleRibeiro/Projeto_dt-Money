@@ -42,6 +42,7 @@ export function NewTransactionModal({
         <TransactionTypeContainer>
           <RadioBox
             type="button"
+            activeColor="green"
             isActive={type === "deposit"}
             // className={type === 'deposit' ? 'active' : ""} uma das formas de mostrar que o botão esta ativo quando não é componente
             onClick={() => {
@@ -55,6 +56,7 @@ export function NewTransactionModal({
           <RadioBox
             type="button"
             isActive={type === "withdraw"}
+            activeColor="red"
             onClick={() => {
               setType("withdraw");
             }}

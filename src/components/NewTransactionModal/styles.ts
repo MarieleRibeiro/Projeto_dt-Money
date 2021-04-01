@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken } from "polished"; //biblioteca para manipular/modificar as cores -> yarn add polished
+import { darken, transparentize } from "polished"; //biblioteca para manipular/modificar as cores -> yarn add polished
 // darken => escurecer uma cor
 
 export const Container = styled.div`
@@ -59,7 +59,12 @@ export const TransactionTypeContainer = styled.div`
 
 interface RadioBoxProps {
   isActive: boolean;
+  activeColor: "green" | "red";
 }
+const colors = {
+  green: "#33cc95",
+  red: "#e52e4d",
+};
 
 export const RadioBox = styled.button<RadioBoxProps>`
   height: 4rem;
@@ -68,9 +73,11 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
   // toda vez que eu passar uma função dentro de uma interpolação, essa função vai ser chamanda
   //imediatamente pelo styed-componet passando todas a proriedades do meu componente
-  background: ${(props) => (props.isActive ? "#ccc" : "transparent")};
-  // observar que não foi colocado {} porque foi feito um return
   // quando não é colocado {} por volta de uma função o conteúdo dela faz um return automatico
+  background: ${(props) =>
+    props.isActive
+      ? transparentize(0.9, colors[props.activeColor])
+      : "transparent"};
 
   display: flex;
   align-items: center;

@@ -33,6 +33,10 @@ export function NewTransactionModal({
       type,
     });
 
+    setTitle(""); // resetar os valores dos campos
+    setAmount(0);
+    setCategory("");
+    setType("deposit");
     onRequestClose();
   }
 

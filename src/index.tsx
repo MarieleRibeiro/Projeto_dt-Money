@@ -7,6 +7,30 @@ createServer({
   models: {
     transaction: Model,
   },
+  // função seeds recebe uma propriedade server
+  seeds(server) {
+    server.db.loadData({
+      transactions: [
+        // o nome da tabela, que é sempre o no nome do Model no plural
+        {
+          id: 1,
+          title: "Freelance de Website",
+          type: "deposit",
+          category: "dev",
+          amount: 6000,
+          createdAt: new Date("2021-02-12 09:00:00"),
+        },
+        {
+          id: 2,
+          title: "Freelance de Website",
+          type: "withdraw",
+          category: "casa",
+          amount: 1000,
+          createdAt: new Date("2021-02-21 09:00:00"),
+        },
+      ],
+    });
+  },
 
   routes() {
     this.namespace = "api"; // todas as chamadas api que eu vou fazer vão estar a partir desse endereço "api", ele vai captar todas as chamadas que tenha /api como chamadas que eu quero direcionar para o miragejs

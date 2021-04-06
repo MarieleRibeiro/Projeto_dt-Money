@@ -6,7 +6,7 @@ import { NewTransactionModal } from "./components/NewTransactionModal";
 import { TransactionsProvider } from "./TransactionsContext";
 import { useState } from "react";
 
-Modal.setAppElement("#root"); // questão de acessibilidade
+Modal.setAppElement("#root"); // questão de acessibilidade da modal
 
 export default function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(
